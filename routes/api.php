@@ -26,6 +26,7 @@ Route::post('/reset-password', [AuthController::class, 'resetPassword']);
 Route::post('/tasks', [TaskController::class, 'store'])->middleware('auth:sanctum');
 Route::post('/tasks/{task}/suggest', [TaskController::class, 'suggest'])->middleware('auth:sanctum');
 Route::get('/tasks', [TaskController::class, 'index']);
+Route::get('/tasks/{task}', [TaskController::class, 'show']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
