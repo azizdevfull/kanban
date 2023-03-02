@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\TaskController;
 
 /*
@@ -19,6 +20,7 @@ use App\Http\Controllers\Api\TaskController;
 Route::post('/auth/register', [AuthController::class, 'Register']);
 Route::post('/auth/login', [AuthController::class, 'login']);
 Route::post('/auth/logout', [AuthController::class, 'logoutUser'])->middleware('auth:sanctum');
+Route::post('/profile', [ProfileController::class, 'Profile'])->middleware('auth:sanctum');
 Route::post('/verify-email', [AuthController::class, 'verifyEmail']);
 Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::post('/reset-password', [AuthController::class, 'resetPassword']);
