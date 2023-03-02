@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\TaskController;
 
@@ -31,6 +32,10 @@ Route::post('/tasks', [TaskController::class, 'store'])->middleware('auth:sanctu
 Route::post('/tasks/{task}/suggest', [TaskController::class, 'suggest'])->middleware('auth:sanctum');
 Route::get('/tasks', [TaskController::class, 'index']);
 Route::get('/tasks/{task}', [TaskController::class, 'show']);
+Route::put('/tasks/{task}', [TaskController::class, 'update'])->middleware('auth:sanctum');
+Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->middleware('auth:sanctum');
+
+Route::get('/home', [HomeController::class, 'Home'])->middleware('auth:sanctum');
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

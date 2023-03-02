@@ -211,16 +211,12 @@ public function resetPassword(Request $request)
 
 public function logoutUser(Request $request)
 {
-    //  use Laravel\Sanctum\PersonalAccessToken;
-
-
-// Get bearer token from the request
 $accessToken = $request->bearerToken();
 
-// Get access token from database
+
 $token = PersonalAccessToken::findToken($accessToken);
 
-// Revoke token
+
 $token->delete();
 
 return response()->json([
