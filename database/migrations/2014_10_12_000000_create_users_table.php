@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->text('bio')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('lavozim')->default('mentor');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
