@@ -56,6 +56,11 @@ class TaskController extends Controller
 {
     $task = Task::find($id);
 
+
+    if ($task->user_id != Auth::user()->id) {
+        return response()->json(['message' => 'You Dont Have Acces!'], 403);
+    }
+
     $user_id = $request->user_id;
     $user = User::find($user_id);
 
