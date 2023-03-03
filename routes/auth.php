@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\AuthController;
 
 Route::post('/auth/register', [AuthController::class, 'Register']);
 Route::post('/auth/login', [AuthController::class, 'login']);
+
 Route::post('/auth/logout', [AuthController::class, 'logoutUser'])->middleware('auth:sanctum');
 
 
